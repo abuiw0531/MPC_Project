@@ -1,0 +1,57 @@
+m = 1575;   % Total vehicle mass (kg)
+Iz = 2875;  % Yaw moment of inertia of the vehicle (mNs^2)
+lf = 1.2;   % Longitudinal distance from the center of gravity to the front tires (m)
+lr = 1.6;   % Longitudinal distance from center of gravity to the rear tires (m)
+Cf = 19000; % Cornering stiffness of the front tires (N/rad)
+Cr = 33000; % Cornering stiffness of the rear tires (N/rad)
+Vx = 15;
+
+Vx = 15;
+A = [-(2*Cf+2*Cr)/m/Vx, 0, -Vx-(2*Cf*lf-2*Cr*lr)/m/Vx, 0;
+     0, 0, 1, 0;
+     -(2*Cf*lf-2*Cr*lr)/Iz/Vx, 0, -(2*Cf*lf^2+2*Cr*lr^2)/Iz/Vx, 0;
+     1, Vx, 0, 0];
+B = [2*Cf/m 0 2*Cf*lf/Iz 0]';
+C = [0 0 0 1; 0 1 0 0; 1 0 0 0; 0 0 1 0];
+D = 0;
+vehicle = ss(A,B,C,D);
+
+[allData, scenario, sensor] = generateSensorData();
+t = [allData.Time]';
+ap = [allData.ActorPoses];
+yawRef = [ap.Yaw]';
+posRef = vertcat(ap.Position);
+
+simulationTime = 10;
+reference = [t posRef(:,2) deg2rad(yawRef)];
+waypoints = [1.8 -1.4 0;
+    25.8 -3.4 0;
+    32.6 22.9 0;
+    34.6 39.4 0;
+    67.9 33.6 0;
+    82.4 32.1 0;
+    74.4 -8.2 0;
+    73.9 -41.5 0;
+    93.4 -44.5 0;
+    108.4 -49.8 0;
+    126.5 -34 0;
+    125.2 -0.7 0;
+    128 26.8 0;
+    155.7 27.3 0;
+    176.4 16.3 0];
+
+x = waypoints(:,1);
+y = waypoints(:,2);
+tq = 0:.001:t(end);
+yq = interp1(t,y,tq,'spline')';
+xq = interp1(t,x,tq,'spline')';
+
+
+d1fx = gradient(xq,.001);
+d1fy = gradient(yq,.001);
+d2fx = gradient(d1fx,.001);
+d2fy = gradient(d1fy,.001);
+
+K = d1fx.*d2fy./(d1fx.^2+d1fy.^2).^(3/2);
+md.signals.values = K;
+md.time = 0:.001:t(end);
