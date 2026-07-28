@@ -78,31 +78,37 @@ The vehicle obstacle avoidance MPC project utilizes MATLAB/Simulink and CARSIM t
 ### 1. MATLAB/Simulink Block Architecture
 This is the Simulink block diagram for the project, including path/curvature inputs, the MPC controller, the CARSIM vehicle model, and Scope outputs.
 **Key Focus**: Demonstrates the closed-loop architecture integrating the controller, vehicle model, and feedback signals.
+
 <img src="image1.png" width="900" alt="MATLAB/Simulink Block Architecture">
 
 ### 2. Obstacle Avoidance Path Planning & Feasible Trajectory
 The black line is the planned vehicle trajectory, the blue lines are the road boundaries, and the red box represents the obstacle and safety zone.
 Shows the vehicle bypassing the obstacle within road boundaries and gradually returning to the expected path.
+
 <img src="image2.png" width="600" alt="Obstacle Avoidance Path Planning">
 
 ### 3. Obstacle Safety Distance & Avoidance Results
 The red dashed box indicates the obstacle buffer zone, and the black line is the path after avoidance.
 The system uses the distance between the vehicle and the obstacle as a condition, triggering the avoidance strategy when the distance falls below a safety threshold.
+
 <img src="image3.png" width="600" alt="Obstacle Safety Distance & Avoidance Results">
 
 ### 4. Impact of Sampling Time on Trajectory
 Compares the MPC controller's response to path changes under different sampling times.
 A shorter sampling time usually allows the controller to respond faster, resulting in a smoother trajectory. A longer sampling time is more prone to delays and offsets.
+
 <img src="image4.png" width="600" alt="Impact of Sampling Time on Trajectory">
 
 ### 5. Impact of Steering Angle Limits on Avoidance Stability
 Compares avoidance trajectories under different steering angle limits.
 Steering angle limits affect the vehicle's flexibility and stability during avoidance; overly loose limits may cause trajectory oscillation or instability.
+
 <img src="image5.png" width="600" alt="Impact of Steering Angle Limits on Avoidance Stability">
 
 ### 6. CARSIM Simulation
 The left side shows the vehicle road simulation, and the right side displays the vehicle state output curves.
 Lateral position, steering angle, and yaw signals can be observed as a basis for judging vehicle stability and control effectiveness.
+
 <img src="image6.png" width="600" alt="CARSIM Simulation">
 
 ## Project Structure
