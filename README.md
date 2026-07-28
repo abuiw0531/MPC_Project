@@ -16,18 +16,6 @@ w# MPC Virtual Lab (模型預測控制虛擬實驗室)
 
 ## 詳細實作成果與分析 (Detailed Implementation & Analysis)
 
-| 實作項目 (Implementation) | 說明與重點 (Description) |
-| :--- | :--- |
-| **MATLAB/Simulink 閉迴路架構<br>(Closed-Loop Architecture)** | 整合路徑/曲率輸入、MPC 控制器、CARSIM 車輛模型與 Scope 輸出。**重點**：成功將控制器、車輛模型與回授訊號串聯，完成完整的閉迴路架構。 |
-| **避障路徑規劃與可行軌跡<br>(Obstacle Avoidance Trajectory)** | 模擬車輛在道路邊界內繞過障礙物，並逐步回到預期路徑。（黑線：行駛軌跡 / 藍線：道路邊界 / 紅框：障礙物與安全區） |
-| **障礙物安全距離與避障結果<br>(Safety Distance & Avoidance)** | 系統以車輛與障礙物距離作為判斷條件，當距離低於安全門檻時，即自動觸發避障策略。 |
-| **取樣週期對軌跡的影響<br>(Impact of Sampling Time)** | 比較不同取樣週期對 MPC 控制器反應的影響：較短取樣週期反應較快且軌跡平滑；較長取樣週期則易產生延遲與偏移。 |
-| **轉向角限制對穩定性的影響<br>(Impact of Steering Limits)** | 探討不同轉向角限制下的避障表現。轉向角限制直接影響靈活性與穩定性，限制過大可能導致軌跡震盪或不穩定。 |
-| **CARSIM 軟體整合模擬<br>(CARSIM Integration Simulation)** | 結合 CARSIM 進行車輛道路模擬，並透過輸出橫向位置、轉向角與偏航角等狀態曲線，作為判斷車輛穩定性與控制效果的依據。 |
-
-## 系統展示 (System Visuals)
-> **(💡提示：如果您有將上述提到的圖表截圖存檔，可以將圖片放入資料夾並將檔名替換到下方)**
-
 ### 1. MATLAB/Simulink Block 架構
 此圖1為專題中的 Simulink block diagram，包含路徑/曲率輸入、MPC 控制器、CARSIM 車輛模型與 Scope 輸出。
 **重點**：能呈現我有把控制器、車輛模型與回授訊號串成閉迴路架構。
@@ -36,26 +24,31 @@ w# MPC Virtual Lab (模型預測控制虛擬實驗室)
 ### 2. 避障路徑規劃與可行軌跡
 黑線為車輛規劃後的行駛軌跡，藍線為道路邊界，紅色框為障礙物與安全區。
 此圖2呈現車輛在道路邊界內繞過障礙物，並逐步回到預期路徑。
+
 <img src="image2.png" width="600" alt="避障路徑規劃與可行軌跡">
 
 ### 3. 障礙物安全距離與避障結果
 紅色虛線框表示障礙物緩衝區，黑線為避障後路徑。
 系統以車輛與障礙物距離作為判斷條件，當距離低於安全門檻時觸發避障策略。
+
 <img src="image3.png" width="600" alt="障礙物安全距離與避障結果">
 
 ### 4. 不同取樣週期對軌跡的影響
 比較不同取樣週期下，MPC 控制器對路徑變化的反應。
 較短取樣週期通常能讓控制器更快回應，軌跡較平滑；取樣週期較長時，較容易產生延遲與偏移。
+
 <img src="image4.png" width="600" alt="不同取樣週期對軌跡的影響">
 
 ### 5. 不同轉向角度限制對避障穩定性的影響
 比較不同轉向角限制下的避障軌跡。
 轉向角限制會影響車輛避障時的靈活性與穩定性；限制過大可能造成軌跡震盪或不穩定。
+
 <img src="image5.png" width="600" alt="不同轉向角度限制對避障穩定性的影響">
 
 ### 6. 在 CARSIM 上模擬
 左側為車輛道路模擬畫面，右側為車輛狀態輸出曲線。
 可觀察橫向位置、轉向角與偏航相關訊號，作為判斷車輛穩定性與控制效果的依據。
+
 <img src="image6.png" width="600" alt="在 CARSIM 上模擬">
 
 ## 專案結構 (Project Structure)
@@ -81,18 +74,6 @@ The vehicle obstacle avoidance MPC project utilizes MATLAB/Simulink and CARSIM t
 - **Custom Trajectory Tracking**: Implementing and verifying the control system's performance on tracking complex custom paths.
 
 ## Detailed Implementation & Analysis
-
-| Implementation | Description & Key Findings |
-| :--- | :--- |
-| **Closed-Loop Architecture<br>(MATLAB/Simulink)** | Integrated path/curvature inputs, MPC controller, CARSIM vehicle model, and Scope outputs. **Key**: Successfully formed a complete closed-loop architecture with feedback signals. |
-| **Obstacle Avoidance Trajectory** | Simulated the vehicle bypassing an obstacle within road boundaries and gradually returning to the expected path. |
-| **Safety Distance & Avoidance** | The system uses the distance between the vehicle and the obstacle as a condition to automatically trigger the avoidance strategy when below a safety threshold. |
-| **Impact of Sampling Time** | Compared MPC controller responses: Shorter sampling times yield faster responses and smoother trajectories, while longer times are prone to delays and offsets. |
-| **Impact of Steering Limits** | Analyzed obstacle avoidance under different steering angle limits. Limits directly affect flexibility and stability; overly loose limits may cause trajectory oscillation or instability. |
-| **CARSIM Integration Simulation** | Conducted 3D road simulations combined with CARSIM, outputting state curves like lateral position, steering angle, and yaw to evaluate vehicle stability and control effectiveness. |
-
-## System Visuals
-> **(💡Note: Replace the image sources below with your actual exported charts from the simulation if available)**
 
 ### 1. MATLAB/Simulink Block Architecture
 This is the Simulink block diagram for the project, including path/curvature inputs, the MPC controller, the CARSIM vehicle model, and Scope outputs.
