@@ -3,6 +3,8 @@ w# MPC Virtual Lab (模型預測控制虛擬實驗室)
 [English Version](#english-version) | [Original MathWorks README](README_official.md)
 
 ## 專案簡介 (Project Overview)
+**Demo Video(Carsim ):** [Watch Demo Video](https://youtu.be/lArXpTgcnzY?si=3mgiWZGPRZ0MI6T7)
+
 參與「汽車避障控制之模型預測控制(MPC)應用」專題研究，負責建立精確的車輛動力學模型，並使用 MATLAB/Simulink 與 CARSIM 建構模擬環境，設計與優化 MPC 控制器，調整成本函數與權重以平衡穩定性與反應速度。在專題中，我整合障礙物檢測與避障策略，進行多場景數值模擬與性能評估，成功驗證控制器在動態交通環境下的高穩定性與可靠性。這段經驗讓我不僅熟悉系統建模、數值分析與軟硬體整合流程。
 
 **專題摘要：**
@@ -62,6 +64,8 @@ w# MPC Virtual Lab (模型預測控制虛擬實驗室)
 # English Version
 
 ## Project Overview
+**Demo Video(Carsim):** [Watch Demo Video](https://youtu.be/lArXpTgcnzY?si=3mgiWZGPRZ0MI6T7)
+
 Participated in the "Model Predictive Control (MPC) Application for Vehicle Obstacle Avoidance" research project. Responsible for building precise vehicle dynamics models and constructing a simulation environment using MATLAB/Simulink and CARSIM. Designed and optimized the MPC controller, adjusting cost functions and weights to balance stability and response speed. Integrated obstacle detection and avoidance strategies, conducted multi-scenario numerical simulations, and evaluated performance, successfully validating the controller's high stability and reliability in dynamic traffic environments. This experience provided deep familiarity with system modeling, numerical analysis, and hardware-software integration workflows.
 
 **Project Summary:**
