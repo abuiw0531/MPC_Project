@@ -1,4 +1,4 @@
-w# MPC Virtual Lab (模型預測控制虛擬實驗室)
+汽車避障mpc
 
 [English Version](#english-version) | [Original MathWorks README](README_official.md)
 
