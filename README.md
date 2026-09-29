@@ -6,6 +6,8 @@
 ## 專案簡介 (Project Overview)
 **Demo Video (CarSim):** [Watch Demo Video](https://youtu.be/lArXpTgcnzY?si=3mgiWZGPRZ0MI6T7)
 
+**專題報告：** [英文版](https://drive.google.com/file/d/1v-0C0iY2ymKvJx4FrQXjPSXCDhdqTVWA/view?usp=drive_link) | [中文版](https://docs.google.com/document/d/119gJp0dbX8Iml4VW7XdhXmLwwqkW_Kun/edit?usp=drive_link&ouid=106856778759833792161&rtpof=true&sd=true)
+
 這是 Electrical Engineering 畢業專題，以模型預測控制（Model Predictive Control, MPC）研究車輛路徑追蹤與障礙物避讓。專題為團隊共同完成；專題報告、模擬結果與專案中納入的程式碼，呈現的是整體團隊成果。
 **專題摘要：**
 專題的核心問題是：如何利用車輛模型與 MPC，在追蹤參考路徑的同時處理障礙物，並評估取樣週期及轉向限制對控制響應與軌跡的影響。
@@ -84,6 +86,8 @@
 
 ## Project Overview
 **Demo Video (CarSim):** [Watch Demo Video](https://youtu.be/lArXpTgcnzY?si=3mgiWZGPRZ0MI6T7)
+
+**Project Report:** [English Version](https://drive.google.com/file/d/1v-0C0iY2ymKvJx4FrQXjPSXCDhdqTVWA/view?usp=drive_link) | [Chinese Version](https://docs.google.com/document/d/119gJp0dbX8Iml4VW7XdhXmLwwqkW_Kun/edit?usp=drive_link&ouid=106856778759833792161&rtpof=true&sd=true)
 
 This is an Electrical Engineering capstone project investigating vehicle path tracking and obstacle avoidance using Model Predictive Control (MPC).
 
